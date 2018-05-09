@@ -1,0 +1,9 @@
+Bulk rename files (File Rename with Customizable Increasing Number)
+Dir *.jpg | ForEach-Object  -begin { $count=1 }  -process { rename-item $_ -NewName "image$count.jpg"; $count++ }
+==================================================================================================================
+Changing the File Extension of all .jpeg files to .jpg
+Dir *.jpeg | rename-item -newname {  $_.name  -replace ".jpeg",".jpg"  }
+=========================================================================
+Appending a File Extension
+Dir | rename-item -newname  { $_.Name +".jpg" }
+===============================================
